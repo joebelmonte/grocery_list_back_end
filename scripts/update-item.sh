@@ -1,18 +1,19 @@
 #!/bin/bash
 TOKEN="BAhJIiVmOWI5ZDExYTBlZWNhYjA5MDRkY2MyNjYzZDRiMGQ1ZQY6BkVG--d00fd9eb0943765181ea6197bba6bb344320d719"
-NAME="Bob's second test item"
+NAME="Bob's Updated test item"
 QUANTITY="1"
 PRICE="19.99"
 STORE="Star Market"
 CATEGORY="Dairy"
-NOTES="Bob's second test item"
+NOTES="Bob's Updated test item"
 LISTID="6"
+ID="10"
 
 API="${API_ORIGIN:-http://localhost:4741}"
-URL_PATH="/lists/${LISTID}/items"
+URL_PATH="/lists/${LISTID}/items/${ID}"
 curl "${API}${URL_PATH}" \
   --include \
-  --request POST \
+  --request PATCH \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
